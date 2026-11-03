@@ -1,0 +1,107 @@
+{
+  "entries": [
+    {
+      "hash": "sha256-VWsWKQn+fQcM25qflxIHveBoCgpAs30PglGHQeDa4DU=",
+      "mirrors": [],
+      "path": "archives/control/4.3.0.tar.gz",
+      "url": "https://github.com/gnu-octave/pkg-control/releases/download/control-4.3.0/control-4.3.0.tar.gz"
+    },
+    {
+      "hash": "sha256-9ZibTxSOb1tpant87ujGEBQKz2CE6z5+r78Os433mjM=",
+      "mirrors": [],
+      "path": "archives/signal/1.4.8.tar.gz",
+      "url": "https://github.com/gnu-octave/octave-signal/releases/download/1.4.8/signal-1.4.8.tar.gz"
+    }
+  ],
+  "extraInputs": [],
+  "inputs": {
+    "DESCRIPTION": {
+      "sha256": "c8e2bf720c52bb87a6769b2ddf83e79789d2d27a30c677fb39599bfe9a4ddf16"
+    }
+  },
+  "nodes": [
+    {
+      "entry": "archives/control/4.3.0.tar.gz",
+      "name": "control",
+      "native": {
+        "author": "Lukas Reichlin <lukas.reichlin@gmail.com>",
+        "autoload": "no",
+        "date": "2026-11-01",
+        "depends": [
+          {
+            "operator": ">=",
+            "package": "octave",
+            "version": "6.4.0"
+          }
+        ],
+        "description": "Control package for GNU Octave including system analysis and  control synthesis. The package uses routines of the SLICOT-Reference library.",
+        "license": "GPLv3-or-later, BSD 3-Clause License (SLICOT files)",
+        "maintainer": "Doug Stewart <doug.dastew@gmail.com>, Torsten Lilge <ttl-octave@mailbox.org>",
+        "name": "control",
+        "title": "Control Package",
+        "tracker": "https://github.com/gnu-octave/pkg-control/issues",
+        "url": "https://github.com/gnu-octave/pkg-control",
+        "version": "4.3.0"
+      }
+    },
+    {
+      "entry": "archives/signal/1.4.8.tar.gz",
+      "name": "signal",
+      "native": {
+        "author": "various authors",
+        "autoload": "no",
+        "date": "2026-08-07",
+        "depends": [
+          {
+            "operator": ">=",
+            "package": "octave",
+            "version": "3.8"
+          },
+          {
+            "operator": ">=",
+            "package": "control",
+            "version": "2.4"
+          }
+        ],
+        "description": "Signal processing tools, including filtering, windowing and display functions.",
+        "license": "GPLv3+, public domain",
+        "maintainer": "Octave-Forge community <maintainers@octave.org>",
+        "name": "signal",
+        "repository": "https://github.com/gnu-octave/octave-signal/",
+        "title": "Signal Processing",
+        "tracker": "https://github.com/gnu-octave/octave-signal/issues/",
+        "url": "https://gnu-octave.github.io/octave-signal/",
+        "version": "1.4.8"
+      }
+    }
+  ],
+  "project": {
+    "author": "the nix-purifier developers",
+    "date": "2026-11-03",
+    "depends": [
+      {
+        "operator": ">=",
+        "package": "octave",
+        "version": "11.0"
+      },
+      {
+        "operator": ">=",
+        "package": "signal",
+        "version": "1.4.8"
+      }
+    ],
+    "description": "Native compiled Octave project.",
+    "license": "MIT",
+    "maintainer": "the nix-purifier developers",
+    "name": "purifierproof",
+    "title": "Native purifier proof",
+    "version": "0.1.0"
+  },
+  "purifier": "octave",
+  "requirements": [
+    "control",
+    "signal"
+  ],
+  "sdk": "fa7f40e113bee0cba55684d860dffe09e58640c490f791b1a7eff10962d9f0ac",
+  "version": 1
+}

@@ -1,0 +1,6 @@
+result*
+cli
+.octave-purifier/
+__pycache__/
+*.pyc
+*.log

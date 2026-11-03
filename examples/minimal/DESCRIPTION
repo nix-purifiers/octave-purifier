@@ -1,0 +1,9 @@
+Name: purifierproof
+Version: 0.1.0
+Date: 2026-11-03
+Title: Native purifier proof
+Author: the nix-purifier developers
+Maintainer: the nix-purifier developers
+Description: Native compiled Octave project.
+Depends: octave (>= 11.0), signal (>= 1.4.8)
+License: MIT
