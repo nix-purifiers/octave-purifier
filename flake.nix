@@ -24,11 +24,11 @@
             nixpkgsSrc = nixpkgs;
             inherit (final) lib octave;
           };
-          cli = scope.callPackage ./nix/cli.nix {
+          cli = scope.callPackage ./pkgs/octave-purifier/default.nix {
             nixpkgsSrc = nixpkgs;
             purifierSrc = purifier;
           };
-          buildOctaveProject = scope.callPackage ./nix/build-project.nix {
+          buildOctaveProject = scope.callPackage ./pkgs/build-octave-project/default.nix {
             purifier = import (purifier + "/nix/lib") { inherit (final) lib; };
           };
         });
@@ -53,7 +53,7 @@
           meta.description = "Lock native Octave packages";
         };
       });
-      lib.octave-purifier.readLock = import ./nix/read-lock.nix { lib = nixpkgs.lib; };
+      lib.octave-purifier = import ./lib-overlays/default { lib = nixpkgs.lib; };
       checks = forAll (
         system:
         let
