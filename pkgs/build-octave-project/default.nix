@@ -22,7 +22,7 @@
   buildCommand ? "",
 }:
 let
-  lock = purifier.checkLock (import ./read-lock.nix { inherit lib; } { inherit src lockFile; });
+  lock = purifier.checkLock (import ../../lib-overlays/default/read-lock.nix { inherit lib; } { inherit src lockFile; });
   prepared = import ./environment.nix (builtins.removeAttrs scope [
     "gnutar"
     "gzip"
@@ -54,7 +54,7 @@ let
     requiredOctavePackages = builtins.attrValues prepared.packages;
     inherit nativeBuildInputs;
     postBuild = ''
-      ${python3}/bin/python3 ${../octave_purifier/normalize-archives.py} "$out"
+      ${python3}/bin/python3 ${../../octave_purifier/normalize-archives.py} "$out"
     '';
     env = {
       TAR_OPTIONS = "--sort=name --mtime=@1 --owner=0 --group=0 --numeric-owner";

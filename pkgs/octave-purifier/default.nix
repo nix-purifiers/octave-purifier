@@ -26,12 +26,12 @@
 stdenvNoCC.mkDerivation {
   pname = "octave-purifier";
   version = "0.1.0";
-  src = ../.;
+  src = ../..;
   nativeBuildInputs = [ makeWrapper ];
   dontBuild = true;
   installPhase = ''
     mkdir -p "$out/bin" "$out/lib/octave-purifier"
-    cp -r octave_purifier nix "$out/lib/octave-purifier/"
+    cp -r octave_purifier nix lib-overlays pkgs "$out/lib/octave-purifier/"
     install -m755 bin/octave-purifier "$out/bin/octave-purifier"
     substituteInPlace "$out/lib/octave-purifier/nix/realize.nix" --replace-fail '@nixpkgs@' '${nixpkgsSrc}' --replace-fail '@purifier@' '${purifierSrc}'
     wrapProgram "$out/bin/octave-purifier" \

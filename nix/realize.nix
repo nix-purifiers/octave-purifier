@@ -14,7 +14,7 @@ let
     inherit (pkgs) octave lib;
   };
   nativePkg = pkgs.callPackage ./native.nix { };
-  build = pkgs.callPackage ./build-project.nix { inherit purifier sdkVersion nativePkg; } {
+  build = pkgs.callPackage ../pkgs/build-octave-project/default.nix { inherit purifier sdkVersion nativePkg; } {
     src = /. + project;
     lockFile = /. + companion;
   };

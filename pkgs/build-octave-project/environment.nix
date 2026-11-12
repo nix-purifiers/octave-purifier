@@ -67,7 +67,7 @@ let
               (old.postBuild or "")
               + "\n"
               + ''
-                ${python3}/bin/python3 ${../octave_purifier/normalize-archives.py} "$out"
+                ${python3}/bin/python3 ${../../octave_purifier/normalize-archives.py} "$out"
               '';
           });
         in
